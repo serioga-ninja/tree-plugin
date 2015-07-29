@@ -1,11 +1,11 @@
 {
-  "name": "vlado-tree-plagin",
+  "name": "tree-plagin",
   "version": "0.0.0",
   "authors": [
-    "serioga <sergey.datsiy@yanpix.com>"
+    "serioga <sergeidatsiy@gmail.com>"
   ],
   "description": "plagin dlia vladika",
-  "main": "index.php",
+  "main": "index.html",
   "license": "MIT",
   "private": true,
   "ignore": [
