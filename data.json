@@ -1,274 +1,50 @@
 {
-  "objects": [
-    {
-      "url": null,
-      "canDelete": false,
-      "id": 8,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Commercie",
-      "editUrl": "/Organisation/Edit/8",
-      "deleteUrl": "/Organisation/Delete/8",
-      "email": "ald1@gmail.com",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "1 / 1"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 2,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Commissie Hockey Zaken",
-      "editUrl": "/Organisation/Edit/2",
-      "deleteUrl": "/Organisation/Delete/2",
-      "email": null,
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 12,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Materialen",
-      "editUrl": "/Organisation/Edit/12",
-      "deleteUrl": "/Organisation/Delete/12",
-      "email": "asdasdas@dasdasd.com",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "1 / 1"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 10,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Communicatie",
-      "editUrl": "/Organisation/Edit/10",
-      "deleteUrl": "/Organisation/Delete/10",
-      "email": "communicatie@almeersehockeyclub.nl",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 9,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "dasdas",
-      "editUrl": "/Organisation/Edit/9",
-      "deleteUrl": "/Organisation/Delete/9",
-      "email": "test@mail.c2om",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "10 / 10"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 3,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Ondersteunende Commissies",
-      "editUrl": "/Organisation/Edit/3",
-      "deleteUrl": "/Organisation/Delete/3",
-      "email": null,
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 18,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Strafadvies",
-      "editUrl": "/Organisation/Edit/18",
-      "deleteUrl": "/Organisation/Delete/18",
-      "email": null,
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 17,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Toernooicommissie",
-      "editUrl": "/Organisation/Edit/17",
-      "deleteUrl": "/Organisation/Delete/17",
-      "email": "geniypotashkin@gmail.com",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 15,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Vertrouwenscommissie",
-      "editUrl": "/Organisation/Edit/15",
-      "deleteUrl": "/Organisation/Delete/15",
-      "email": "eugene@yanpix.com",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 14,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Vrijwilligers",
-      "editUrl": "/Organisation/Edit/14",
-      "deleteUrl": "/Organisation/Delete/14",
-      "email": "evgeniypotashkin@gmail.com",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0"
-    }, {
-      "url": null,
-      "canDelete": false,
-      "id": 4,
-      "entity": "/SubOrganisation/Get?isVacancy=False",
-      "hasChildren": true,
-      "title": "Jeugdbestuur",
-      "editUrl": "/Organisation/Edit/4",
-      "deleteUrl": "/Organisation/Delete/4",
-      "email": "jb@almeersehockeyclub.nl",
-      "Vacancies": false,
-      "isActiveFunction": false,
-      "functions": "0 / 0",
-      "objects": [
-        {
-          "url": null,
-          "canDelete": false,
-          "id": 8,
-          "entity": "/SubOrganisation/Get?isVacancy=False",
-          "hasChildren": true,
-          "title": "Commercie",
-          "editUrl": "/Organisation/Edit/8",
-          "deleteUrl": "/Organisation/Delete/8",
-          "email": "ald1@gmail.com",
-          "Vacancies": false,
-          "isActiveFunction": false,
-          "functions": "1 / 1",
-          "objects": [
-            {
-              "url": null,
-              "canDelete": false,
-              "id": 8,
-              "entity": "/SubOrganisation/Get?isVacancy=False",
-              "hasChildren": true,
-              "title": "Commercie",
-              "editUrl": "/Organisation/Edit/8",
-              "deleteUrl": "/Organisation/Delete/8",
-              "email": "ald1@gmail.com",
-              "Vacancies": false,
-              "isActiveFunction": false,
-              "functions": "1 / 1"
-            }, {
-              "url": null,
-              "canDelete": false,
-              "id": 2,
-              "entity": "/SubOrganisation/Get?isVacancy=False",
-              "hasChildren": true,
-              "title": "Commissie Hockey Zaken",
-              "editUrl": "/Organisation/Edit/2",
-              "deleteUrl": "/Organisation/Delete/2",
-              "email": null,
-              "Vacancies": false,
-              "isActiveFunction": false,
-              "functions": "0 / 0"
-            }, {
-              "url": null,
-              "canDelete": false,
-              "id": 12,
-              "entity": "/SubOrganisation/Get?isVacancy=False",
-              "hasChildren": true,
-              "title": "Materialen",
-              "editUrl": "/Organisation/Edit/12",
-              "deleteUrl": "/Organisation/Delete/12",
-              "email": "asdasdas@dasdasd.com",
-              "Vacancies": false,
-              "isActiveFunction": false,
-              "functions": "1 / 1"
-            }
-          ]
-        }, {
-          "url": null,
-          "canDelete": false,
-          "id": 2,
-          "entity": "/SubOrganisation/Get?isVacancy=False",
-          "hasChildren": true,
-          "title": "Commissie Hockey Zaken",
-          "editUrl": "/Organisation/Edit/2",
-          "deleteUrl": "/Organisation/Delete/2",
-          "email": null,
-          "Vacancies": false,
-          "isActiveFunction": false,
-          "functions": "0 / 0",
-          "objects": [
-            {
-              "url": null,
-              "canDelete": false,
-              "id": 8,
-              "entity": "/SubOrganisation/Get?isVacancy=False",
-              "hasChildren": true,
-              "title": "Commercie",
-              "editUrl": "/Organisation/Edit/8",
-              "deleteUrl": "/Organisation/Delete/8",
-              "email": "ald1@gmail.com",
-              "Vacancies": false,
-              "isActiveFunction": false,
-              "functions": "1 / 1"
-            }, {
-              "url": null,
-              "canDelete": false,
-              "id": 2,
-              "entity": "/SubOrganisation/Get?isVacancy=False",
-              "hasChildren": true,
-              "title": "Commissie Hockey Zaken",
-              "editUrl": "/Organisation/Edit/2",
-              "deleteUrl": "/Organisation/Delete/2",
-              "email": null,
-              "Vacancies": false,
-              "isActiveFunction": false,
-              "functions": "0 / 0"
-            }, {
-              "url": null,
-              "canDelete": false,
-              "id": 12,
-              "entity": "/SubOrganisation/Get?isVacancy=False",
-              "hasChildren": true,
-              "title": "Materialen",
-              "editUrl": "/Organisation/Edit/12",
-              "deleteUrl": "/Organisation/Delete/12",
-              "email": "asdasdas@dasdasd.com",
-              "Vacancies": false,
-              "isActiveFunction": false,
-              "functions": "1 / 1"
-            }
-          ]
-        }, {
-          "url": null,
-          "canDelete": false,
-          "id": 12,
-          "entity": "/SubOrganisation/Get?isVacancy=False",
-          "hasChildren": true,
-          "title": "Materialen",
-          "editUrl": "/Organisation/Edit/12",
-          "deleteUrl": "/Organisation/Delete/12",
-          "email": "asdasdas@dasdasd.com",
-          "Vacancies": false,
-          "isActiveFunction": false,
-          "functions": "1 / 1"
-        }
-      ]
-    }
-  ]
+  "functions": {
+    "Technisch Coördinator (TCO) ": [
+      {
+        "StartDate": "\/Date(1110405600000)\/",
+        "EndDate": null,
+        "FunctionId": 245,
+        "Id": 900,
+        "MemberId": 711,
+        "FullName": "Fabian Fabian",
+        "EmailId": null,
+        "MemberEmail": "",
+        "DeleteUrl": "/OrganisationFunction/Delete/245",
+        "EditUrl": "/OrganisationFunction/EditFunction/245",
+        "FunctionName": "Technisch Coördinator (TCO) "
+      }
+    ],
+    "Vice Voorzitter": [
+      {
+        "StartDate": "\/Date(1049922000000)\/",
+        "EndDate": null,
+        "FunctionId": 527,
+        "Id": 932,
+        "MemberId": 12535,
+        "FullName": "Sebastian Sebast",
+        "EmailId": null,
+        "MemberEmail": "",
+        "DeleteUrl": "/OrganisationFunction/Delete/527",
+        "EditUrl": "/OrganisationFunction/EditFunction/527",
+        "FunctionName": "Vice Voorzitter"
+      }
+    ],
+    "Commissaris Bar": [
+      {
+        "StartDate": "\/Date(1435870800000)\/",
+        "EndDate": null,
+        "FunctionId": 836,
+        "Id": 1069,
+        "MemberId": 908,
+        "FullName": " de ",
+        "EmailId": null,
+        "MemberEmail": "",
+        "DeleteUrl": "/OrganisationFunction/Delete/836",
+        "EditUrl": "/OrganisationFunction/EditFunction/836",
+        "FunctionName": "Commissaris Bar"
+      }
+    ]
+  },
+  "sort": "/SubOrganisation/Sort?orgId=2"
 }

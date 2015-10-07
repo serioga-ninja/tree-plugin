@@ -1,66 +1,96 @@
 .js-tree ul {
-	width: 900px;
-}
-.js-tree ul li {
-	padding: 5px 0;
-	display: inline-block;
-}
-.js-tree ul li div.row:hover {
-	background: #dfeaf7;
-}
-.js-tree ul li div {
-	display: inline-block;
-}
-.js-tree ul li div.operations {
-	width: 100px;
-	float: left;
-}
-.js-tree ul li div.title {
-	width: 650px;
-	padding: 8px 10px;
-	display: block;
-	float: left;
+    width: 900px;
 }
 
+    .js-tree ul li {
+        padding: 5px 0;
+        display: inline-block;
+    }
+
+        .js-tree ul li div.row:hover {
+            background: #dfeaf7;
+        }
+
+        .js-tree ul li div {
+            display: inline-block;
+        }
+
+            .js-tree ul li div.operations {
+                width: 100px;
+                float: left;
+            }
+
+            .js-tree ul li div.title {
+                width: 650px;
+                padding: 8px 10px;
+                display: block;
+                float: left;
+            }
+
 .js-tree li ul {
-	margin-left: 15px;
+    margin-left: 15px;
 }
+
 .js-tree ul li div.edit-button a {
-	background: #29aae3;
-	content: '\e651';
+    background: #29aae3;
+    content: '\e651';
 }
+
 .js-tree ul li div.remove-button a {
-	background: #f10022;
-	content: '\e643';
+    background: #f10022;
+    content: '\e643';
 }
+
 .js-tree ul li div.email-button a {
-	background: #29aae3;
+    background: #29aae3;
 }
+
 .js-tree ul li div a:hover {
-	border-bottom: 1px solid #29AAE3;
-	background: #16467b;	
+    border-bottom: 1px solid #29AAE3;
+    background: #16467b;
 }
- .js-tree ul li div a {
- 	cursor: pointer;
-	width: 30px;
-	height: 30px;
-	display: block;
-	border-bottom: 1px solid #23468e;
-	line-height: 30px;
-	vertical-align: middle;
-	text-align: center;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	font-family: 'Lisa-symbol';
-	color: #fff;
-	font-size: 12px;
-	margin: 0 1px;
+
+.js-tree ul li div a {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-bottom: 1px solid #23468e;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: 'Lisa-symbol';
+    color: #fff;
+    font-size: 12px;
+    margin: 0 1px;
 }
- .js-tree ul li span.icon {
-     float: left;
-     padding: 6px 0;
-     cursor: pointer;
-	 width: 30px;
-	 height: 30px;
- }
+
+.js-tree ul li span.icon {
+    float: left;
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+#collapse_expand_btn {
+    padding: 10px;
+    cursor: pointer;
+    height: 35px;
+    width: 230px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    font-family: 'Lisa-symbol';
+    color: #fff;
+    background: #29aae3;
+    border-bottom: 1px solid #23468e;
+    font-size: 14px;
+    margin: 0 1px;
+}
+
+#collapse_expand_btn:hover {
+    border-bottom: 1px solid #29AAE3;
+    background: #16467b;
+}
