@@ -1,8 +1,15 @@
 (function ($) {
+    'use strict';
+    var check = (function check() {
+        return {
+            isString: function isString(value) {
+                return value !== null && value !== undefined && typeof value === 'string' && value.length > 0;
+            }
+        };
+    })();
 
     var Builder = function (events) {
         var builder = this;
-        console.log(builder.elements);
         builder.elements = $.extend({
             'ul': function (sortUrl) {
                 return $('<ul/>').attr('sort', sortUrl);
@@ -13,7 +20,7 @@
             'row': function () {
                 return $('<div/>', {
                     class: 'row'
-                })
+                });
             },
             'title': function (options) {
                 return $('<div/>', {
@@ -21,7 +28,7 @@
                     'data-id': options.id,
                     'data-entity': options.entity,
                     'data-url': options.url,
-                    text: options.title + (options.functions != undefined ? ' (' + options.functions + ')' : '')
+                    text: options.title + (check.isString(options.functions) ? ' (' + options.functions + ')' : '')
                 });
             },
             'icon': function () {
@@ -41,7 +48,7 @@
                 if (options.canDelete) {
                     block.append(remove);
                 }
-                if (options.email != undefined && options.email.length > 0) {
+                if (check.isString(options.email)) {
                     block.append(email);
                 }
                 return block;
@@ -77,10 +84,11 @@
         var builder = this;
 
         builder.elements = {
-            'title': function (title) {
-                return $('<span/>', {
-                    class: 'tree-object closed title',
-                    text: title
+            'title': function (options) {
+                return $('<div/>', {
+                    class: 'tree-object closed title loaded',
+                    'data-id': options.FunctionSoortId,
+                    text: options.FunctionSoortName
                 });
             },
             'fn-title': function (options) {
@@ -100,16 +108,15 @@
                     remove = builder.elements.button('remove-button', 'control table-delete', options, events.onDelete, options.DeleteUrl),
                     email = builder.elements.emailButton('email-button', 'control table-email', options.email);
 
-                
+
                 block.append(edit);
                 block.append(remove);
-                if (options.MemberEmail != undefined && options.MemberEmail.length > 0) {
+                if (check.isString(options.email)) {
                     block.append(email);
                 }
                 return block;
             },
             button: function (_calss, ico, options, evt, href) {
-                console.log('evt', evt);
                 return $('<div/>', {
                     class: _calss,
                     html: $('<a/>', {
@@ -124,23 +131,32 @@
 
         builder.build = function (functions) {
             var lis = [];
-            $.each(functions, function (key, objects) {
-                var li = builder.elements['li'](),
-                    title = builder.elements['title'](key),
-                    row = builder.elements['row'](),
-                    ul = builder.elements['ul']();
+            $.each(functions, function (key, _fn) {
+                var li = builder.elements.li(),
+                    icon = builder.elements.icon(),
+                    title = builder.elements.title(_fn),
+                    buttons = builder.elements.buttons(_fn),
+                    row = builder.elements.row(),
+                    ul = builder.elements.ul();
 
-                $.each(objects, function (key, _func) {
-                    var _li = builder.elements['li'](),
-                        _title = builder.elements['fn-title'](_func),
-                        _buttons = builder.elements['buttons'](_func);
-                    
-                   _li.append(_title).append(_buttons);
+                if (_fn.Members.length) {
+                    icon.addClass('clickable');
+                    icon.click(events.loadNextLevel);
+                    row.append(icon);
+                }
+
+                $.each(_fn.Members, function (key, member) {
+                    var _li = builder.elements.li(),
+                        _title = builder.elements['fn-title'](member),
+                        _buttons = builder.elements.buttons(member);
+
+                    _li.append(_title).append(_buttons);
                     ul.append(_li);
                 });
 
+                ul.css('display', 'none');
                 title.append(ul);
-                row.append(title);
+                row.append(title).append(buttons);
                 li.append(row);
                 lis.push(li);
             });
@@ -154,11 +170,11 @@
         builder.build = function (objects) {
             var lis = [];
             $.each(objects, function (key, value) {
-                var li = builder.elements['li'](value),
-                    row = builder.elements['row'](value),
-                    icon = builder.elements['icon'](value),
-                    title = builder.elements['title'](value),
-                    buttons = builder.elements['buttons'](value);
+                var li = builder.elements.li(value),
+                    row = builder.elements.row(value),
+                    icon = builder.elements.icon(value),
+                    title = builder.elements.title(value),
+                    buttons = builder.elements.buttons(value);
 
                 if (value.hasChildren) {
                     icon.addClass('clickable');
@@ -177,7 +193,7 @@
 
     var Adapter = function (Unit, objects) {
         if (!objects || objects.length === 0) {
-            return []
+            return [];
         } else {
             return Unit.build(objects);
         }
@@ -198,7 +214,7 @@
                     if (settings.debug) {
                         return 'data.json';
                     } else if (params.url) {
-                        return params.url
+                        return params.url;
                     } else {
                         var id = params.ids.join('/');
                         var buildNewUrl = params.entity.split('?');
@@ -211,14 +227,13 @@
                 loadNextLevel: function (ev) {
                     //debugger;
                     ev.preventDefault();
-                    var _this = $(ev.currentTarget).next()
-                        , parentLi = $(_this.parents('li')[0])
-                        , ids = []
-                        , elements = _this.parents('li').children('.row').children('.tree-object')
-                        , parentRow = _this.parents('.row')
-                        , iconPlus = 'icon-B_add'
-                        , iconMinus = 'icon-B_minus'
-                        ;
+                    var _this = $(ev.currentTarget).next(),
+                        parentLi = $(_this.parents('li')[0]),
+                        ids = [],
+                        elements = _this.parents('li').children('.row').children('.tree-object'),
+                        parentRow = _this.parents('.row'),
+                        iconPlus = 'icon-B_add',
+                        iconMinus = 'icon-B_minus';
 
                     if (_this.hasClass('loaded')) {
                         parentLi.find('ul').fadeToggle(200, 'linear', function () {
@@ -253,9 +268,9 @@
             };
 
             $this.buildBlock = function (objs) {
-                var ul = objectBuilder.elements['ul'](objs.sort);
+                var ul = objectBuilder.elements.ul(objs.sort);
 
-                var lis = $.merge($.merge([], Adapter(objectBuilder, objs.objects || [])), Adapter(functionBuilder, objs.functions || []));
+                var lis = $.merge($.merge([], new Adapter(objectBuilder, objs.objects || [])), new Adapter(functionBuilder, objs.functions || []));
 
                 $.each(lis, function (key, li) {
                     ul.append(li);
@@ -266,7 +281,7 @@
 
             $this.applySortable = function (ul) {
                 ul.sortable({
-                    update: function (event, ui) {
+                    update: function () {
                         var ids = [];
                         var list = $(this);
                         list.find('li').each(function (key, el) {
@@ -276,12 +291,14 @@
                         $.ajax({
                             url: list.attr('sort'),
                             type: 'POST',
-                            data: {ids: ids},
+                            data: {
+                                ids: ids
+                            },
                             dataType: 'application/json',
                             success: function () {
 
                             }
-                        })
+                        });
                     }
                 });
             };
@@ -326,5 +343,5 @@
             };
             $this.init();
         });
-    }
+    };
 })(jQuery);

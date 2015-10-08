@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title></title>
+    <title>Vladik! TREEEEEEE!!!111!</title>
+    <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/tree.css">
 </head>
+
 <body>
-<div id="vladik"></div>
+    <div id="vladik"></div>
 
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/tree.js"></script>
-<script type="text/javascript">
-    $('#vladik').jsTree({
-//        debug: true,
-        events: {
-            onEdit: function () {
-                alert('edit');
-            },
-            onDelete: function () {
-                alert('delete');
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/tree.js"></script>
+    <script type="text/javascript">
+        $('#vladik').jsTree({
+            //        debug: true,
+            events: {
+                onEdit: function () {
+                    alert('edit');
+                },
+                onDelete: function () {
+                    alert('delete');
+                }
             }
-        }
-    });
-
-</script>
+        });
+    </script>
 </body>
+
 </html>
