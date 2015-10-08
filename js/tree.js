@@ -8,7 +8,7 @@
         };
     })();
 
-    var Builder = function (events) {
+    var BaseUnit = function (events) {
         var builder = this;
         builder.elements = $.extend({
             'ul': function (sortUrl) {
@@ -80,7 +80,7 @@
         }, builder.elements || {});
     };
 
-    var BuilderFunctions = function (events) {
+    var Functions = function (events) {
         var builder = this;
 
         builder.elements = {
@@ -135,7 +135,7 @@
                     icon.click(events.loadNextLevel);
                     row.append(icon);
                 }
-                $.each(new Adapter(new BuilderMembers(events), _fn.Members), function (key, _li) {
+                $.each(new Builder(new Members(events), _fn.Members), function (key, _li) {
                     ul.append(_li);
                 });
                 ul.css('display', 'none');
@@ -145,10 +145,10 @@
             });
             return lis;
         };
-        Builder.apply(builder, arguments);
+        BaseUnit.apply(builder, arguments);
     };
 
-    var BuilderMembers = function () {
+    var Members = function () {
         var builder = this;
 
         builder.elements = {
@@ -178,10 +178,10 @@
             return lis;
         };
 
-        Builder.call(builder, arguments);
+        BaseUnit.call(builder, arguments);
     };
 
-    var BuilderObjects = function (events) {
+    var Objects = function (events) {
         var builder = this;
         builder.build = function (objects) {
             var lis = [];
@@ -204,10 +204,10 @@
             });
             return lis;
         };
-        Builder.apply(this, arguments);
+        BaseUnit.apply(this, arguments);
     };
 
-    var Adapter = function (Unit, objects) {
+    var Builder = function (Unit, objects) {
         if (!objects || objects.length === 0) {
             return [];
         } else {
@@ -286,7 +286,7 @@
             $this.buildBlock = function (objs) {
                 var ul = objectBuilder.elements.ul(objs.sort);
 
-                var lis = $.merge($.merge([], new Adapter(objectBuilder, objs.objects || [])), new Adapter(functionBuilder, objs.functions || []));
+                var lis = $.merge($.merge([], new Builder(objectBuilder, objs.objects || [])), new Builder(functionBuilder, objs.functions || []));
 
                 $.each(lis, function (key, li) {
                     ul.append(li);
@@ -335,8 +335,8 @@
 
                 $this.events = $.extend($this.events, settings.events);
 
-                objectBuilder = new BuilderObjects($this.events);
-                functionBuilder = new BuilderFunctions($this.events);
+                objectBuilder = new Objects($this.events);
+                functionBuilder = new Functions($this.events);
 
                 $('li').disableSelection();
                 $.ajaxSetup({
