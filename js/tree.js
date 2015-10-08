@@ -91,15 +91,6 @@
                     text: options.FunctionSoortName
                 });
             },
-            'fn-title': function (options) {
-                var date = new Date(parseInt(options.StartDate.substr(6)));
-                return $('<div/>', {
-                    class: 'tree-object closed title',
-                    'data-id': options.Id,
-                    text: ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear() + ' ' + options.FullName
-                });
-
-            },
             'buttons': function (options) {
                 var block = $('<div/>', {
                         class: 'operations'
@@ -144,25 +135,50 @@
                     icon.click(events.loadNextLevel);
                     row.append(icon);
                 }
-
-                $.each(_fn.Members, function (key, member) {
-                    var _li = builder.elements.li(),
-                        _title = builder.elements['fn-title'](member),
-                        _buttons = builder.elements.buttons(member);
-
-                    _li.append(_title).append(_buttons);
+                $.each(new Adapter(new BuilderMembers(events), _fn.Members), function (key, _li) {
                     ul.append(_li);
                 });
-
                 ul.css('display', 'none');
-                title.append(ul);
+                row.append(title).append(buttons);
+                li.append(row).append(ul);
+                lis.push(li);
+            });
+            return lis;
+        };
+        Builder.apply(builder, arguments);
+    };
+
+    var BuilderMembers = function () {
+        var builder = this;
+
+        builder.elements = {
+            'title': function (options) {
+                var date = new Date(parseInt(options.StartDate.substr(6)));
+                return $('<div/>', {
+                    class: 'tree-object closed title',
+                    'data-id': options.Id,
+                    text: ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear() + ' ' + options.FullName
+                });
+
+            }
+        };
+
+        builder.build = function build(members) {
+            var lis = [];
+            $.each(members, function (key, member) {
+                var row = builder.elements.row(),
+                    title = builder.elements.title(member),
+                    li = builder.elements.li(),
+                    buttons = builder.elements.buttons(member);
+
                 row.append(title).append(buttons);
                 li.append(row);
                 lis.push(li);
             });
             return lis;
         };
-        Builder.apply(builder, arguments);
+
+        Builder.call(builder, arguments);
     };
 
     var BuilderObjects = function (events) {
@@ -287,7 +303,6 @@
                         list.find('li').each(function (key, el) {
                             ids.push($(el).find('.row .tree-object').attr('data-id'));
                         });
-                        console.log(ids);
                         $.ajax({
                             url: list.attr('sort'),
                             type: 'POST',
